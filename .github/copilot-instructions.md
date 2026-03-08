@@ -9,6 +9,7 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 
 ## Angular Best Practices
 
+- Always use angular cli commands to generate components, services and all other things.
 - Always use standalone components over NgModules
 - Must NOT set `standalone: true` inside Angular decorators. It's the default in Angular v20+.
 - Use signals for state management
@@ -28,7 +29,8 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Use `input()` and `output()` functions instead of decorators
 - Use `computed()` for derived state
 - Set `changeDetection: ChangeDetectionStrategy.OnPush` in `@Component` decorator
-- Prefer inline templates for small components
+- Always use components with 3 files minimum files (html, scss & ts) unless component is very very small.
+- Prefer inline templates only only for small components
 - Prefer Reactive forms instead of Template-driven ones
 - Do NOT use `ngClass`, use `class` bindings instead
 - Do NOT use `ngStyle`, use `style` bindings instead
@@ -53,3 +55,7 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Design services around a single responsibility
 - Use the `providedIn: 'root'` option for singleton services
 - Use the `inject()` function instead of constructor injection
+
+## Bootstrap
+
+- Boostrap is installed and configured in the project, also the icons package is installed. Use them for styling and icons instead of custom CSS or other libraries. Use the utility classes provided by Bootstrap for layout and spacing.
