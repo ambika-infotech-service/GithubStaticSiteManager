@@ -4,20 +4,120 @@
             <h1 class="h2 mb-2">Dashboard</h1>
             <p class="text-secondary mb-0">Monitor your static sites deployed on GitHub Pages</p>
         </div>
-        @if (apps() && apps()!.length > 0) {
-        <button type="button" class="btn" [class.btn-success]="copyAllSuccess()"
-            [class.btn-outline-primary]="!copyAllSuccess()" (click)="shareAllApps()"
-            [attr.aria-label]="copyAllSuccess() ? 'All apps copied!' : 'Share all apps'">
-            @if (copyAllSuccess()) {
-            <i class="bi bi-check-lg" aria-hidden="true"></i>
-            Copied All!
-            } @else {
-            <i class="bi bi-share-fill" aria-hidden="true"></i>
-            Share All
+        <div class="d-flex gap-2">
+            <button type="button" class="btn btn-outline-secondary" (click)="toggleFilters()"
+                [attr.aria-expanded]="showFilters()">
+                <i class="bi bi-funnel" aria-hidden="true"></i>
+                Filters
+                @if (hasActiveFilters()) {
+                <span class="badge text-bg-primary rounded-pill ms-1">Active</span>
+                }
+            </button>
+            @if (apps() && apps()!.length > 0) {
+            <button type="button" class="btn" [class.btn-success]="copyAllSuccess()"
+                [class.btn-outline-primary]="!copyAllSuccess()" (click)="shareAllApps()"
+                [attr.aria-label]="copyAllSuccess() ? 'All apps copied!' : 'Share all apps'">
+                @if (copyAllSuccess()) {
+                <i class="bi bi-check-lg" aria-hidden="true"></i>
+                Copied All!
+                } @else {
+                <i class="bi bi-share-fill" aria-hidden="true"></i>
+                Share All
+                }
+            </button>
             }
-        </button>
-        }
+        </div>
     </header>
+
+    @if (showFilters()) {
+    <div class="card border-0 shadow-sm">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h3 class="h6 mb-0">Filter Options</h3>
+                @if (hasActiveFilters()) {
+                <button type="button" class="btn btn-sm btn-link" (click)="clearFilters()">
+                    Clear All
+                </button>
+                }
+            </div>
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <label for="framework-filter" class="form-label small">Framework</label>
+                    <select id="framework-filter" class="form-select form-select-sm"
+                        [value]="filters().framework"
+                        (change)="updateFilter('framework', $any($event.target).value)">
+                        <option value="">All Frameworks</option>
+                        <option value="angular">Angular</option>
+                        <option value="react">React</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="css-filter" class="form-label small">CSS Framework</label>
+                    <select id="css-filter" class="form-select form-select-sm"
+                        [value]="filters().cssFramework"
+                        (change)="updateFilter('cssFramework', $any($event.target).value)">
+                        <option value="">All CSS Frameworks</option>
+                        <option value="bootstrap">Bootstrap</option>
+                        <option value="tailwind">Tailwind</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="status-filter" class="form-label small">Status</label>
+                    <select id="status-filter" class="form-select form-select-sm"
+                        [value]="filters().healthStatus"
+                        (change)="updateFilter('healthStatus', $any($event.target).value)">
+                        <option value="">All Status</option>
+                        <option value="online">Online</option>
+                        <option value="offline">Offline</option>
+                        <option value="unknown">Unknown</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="mobile-filter" class="form-label small">Mobile Responsive</label>
+                    <select id="mobile-filter" class="form-select form-select-sm"
+                        [value]="filters().isMobileResponsive === null ? '' : filters().isMobileResponsive"
+                        (change)="updateFilter('isMobileResponsive', $any($event.target).value === 'true' ? true : $any($event.target).value === 'false' ? false : null)">
+                        <option value="">All</option>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="spa-filter" class="form-label small">Single Page App</label>
+                    <select id="spa-filter" class="form-select form-select-sm"
+                        [value]="filters().isSinglePage === null ? '' : filters().isSinglePage"
+                        (change)="updateFilter('isSinglePage', $any($event.target).value === 'true' ? true : $any($event.target).value === 'false' ? false : null)">
+                        <option value="">All</option>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="real-world-filter" class="form-label small">Used in Real World</label>
+                    <select id="real-world-filter" class="form-select form-select-sm"
+                        [value]="filters().isUsedInRealWorld === null ? '' : filters().isUsedInRealWorld"
+                        (change)="updateFilter('isUsedInRealWorld', $any($event.target).value === 'true' ? true : $any($event.target).value === 'false' ? false : null)">
+                        <option value="">All</option>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="demo-filter" class="form-label small">Demo Site</label>
+                    <select id="demo-filter" class="form-select form-select-sm"
+                        [value]="filters().isDemoSite === null ? '' : filters().isDemoSite"
+                        (change)="updateFilter('isDemoSite', $any($event.target).value === 'true' ? true : $any($event.target).value === 'false' ? false : null)">
+                        <option value="">All</option>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
 
     @if (isLoading()) {
     <div class="row g-3">
@@ -27,13 +127,28 @@
         </div>
         }
     </div>
-    } @else if (apps() && apps()!.length > 0) {
+    } @else if (filteredApps() && filteredApps()!.length > 0) {
+    <div class="d-flex justify-content-between align-items-center mb-2">
+        <p class="text-secondary small mb-0">
+            Showing {{ filteredApps()!.length }} of {{ apps()!.length }} apps
+        </p>
+    </div>
     <div class="row g-3">
-        @for (item of apps(); track item.app.id) {
+        @for (item of filteredApps(); track item.app.id) {
         <div class="col-12 col-md-6 col-lg-4">
             <app-app-card [item]="item" />
         </div>
         }
+    </div>
+    } @else if (apps() && apps()!.length > 0) {
+    <div class="card border-0 shadow-sm">
+        <div class="card-body text-center py-5">
+            <i class="bi bi-funnel display-4 text-secondary mb-3"></i>
+            <p class="mb-3">No apps match the current filters.</p>
+            <button type="button" class="btn btn-outline-primary" (click)="clearFilters()">
+                Clear Filters
+            </button>
+        </div>
     </div>
     } @else {
     <div class="card border-0 shadow-sm">
