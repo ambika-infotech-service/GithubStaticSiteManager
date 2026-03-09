@@ -22,27 +22,23 @@
         </div>
 
         <div class="d-flex flex-wrap gap-2">
-            <span class="badge" [class.text-bg-success]="item().app.isMobileResponsive"
-                [class.text-bg-secondary]="!item().app.isMobileResponsive">
-                Mobile: {{ item().app.isMobileResponsive ? 'Yes' : 'No' }}
-            </span>
-            <span class="badge" [class.text-bg-primary]="item().app.isSinglePage"
-                [class.text-bg-secondary]="!item().app.isSinglePage">
-                Single Page: {{ item().app.isSinglePage ? 'Yes' : 'No' }}
-            </span>
-            <span class="badge" [class.text-bg-warning]="item().app.isUsedInRealWorld"
-                [class.text-bg-secondary]="!item().app.isUsedInRealWorld">
-                Real World: {{ item().app.isUsedInRealWorld ? 'Yes' : 'No' }}
-            </span>
-            <span class="badge" [class.text-bg-dark]="item().app.isDemoSite"
-                [class.text-bg-secondary]="!item().app.isDemoSite">
-                Demo Site: {{ item().app.isDemoSite ? 'Yes' : 'No' }}
-            </span>
+            @if (item().app.isMobileResponsive) {
+            <span class="badge text-bg-success">Mobile Responsive</span>
+            }
+            @if (item().app.isSinglePage) {
+            <span class="badge text-bg-primary">Single Page</span>
+            }
+            @if (item().app.isUsedInRealWorld) {
+            <span class="badge text-bg-warning">Used In Real World</span>
+            }
+            @if (item().app.isDemoSite) {
+            <span class="badge text-bg-dark">Demo Site</span>
+            }
         </div>
 
         <dl class="mb-0">
             <div class="mb-2">
-                <dt class="small text-secondary mb-1">Subdomain</dt>
+                <dt class="small text-secondary mb-1">URL</dt>
                 <dd class="mb-0">
                     <a [href]="item().app.siteUrl" target="_blank" rel="noopener noreferrer">
                         {{ item().app.domain }}
