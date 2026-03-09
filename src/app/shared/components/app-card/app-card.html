@@ -70,6 +70,19 @@
                 rel="noopener noreferrer">
                 GitHub
             </a>
+            <button type="button" class="btn btn-sm"
+                [class.btn-success]="copySuccess()"
+                [class.btn-outline-secondary]="!copySuccess()"
+                (click)="shareApp()"
+                [attr.aria-label]="copySuccess() ? 'Copied!' : 'Share app details'">
+                @if (copySuccess()) {
+                    <i class="bi bi-check-lg" aria-hidden="true"></i>
+                    Copied!
+                } @else {
+                    <i class="bi bi-share" aria-hidden="true"></i>
+                    Share
+                }
+            </button>
         </div>
     </div>
 </article>

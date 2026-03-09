@@ -1,7 +1,24 @@
 <section class="d-flex flex-column gap-4">
-    <header>
-        <h1 class="h2 mb-2">Dashboard</h1>
-        <p class="text-secondary mb-0">Monitor your static sites deployed on GitHub Pages</p>
+    <header class="d-flex align-items-start justify-content-between gap-3">
+        <div>
+            <h1 class="h2 mb-2">Dashboard</h1>
+            <p class="text-secondary mb-0">Monitor your static sites deployed on GitHub Pages</p>
+        </div>
+        @if (apps() && apps()!.length > 0) {
+        <button type="button" class="btn"
+            [class.btn-success]="copyAllSuccess()"
+            [class.btn-outline-primary]="!copyAllSuccess()"
+            (click)="shareAllApps()"
+            [attr.aria-label]="copyAllSuccess() ? 'All apps copied!' : 'Share all apps'">
+            @if (copyAllSuccess()) {
+                <i class="bi bi-check-lg" aria-hidden="true"></i>
+                Copied All!
+            } @else {
+                <i class="bi bi-share-fill" aria-hidden="true"></i>
+                Share All
+            }
+        </button>
+        }
     </header>
 
     @if (isLoading()) {
