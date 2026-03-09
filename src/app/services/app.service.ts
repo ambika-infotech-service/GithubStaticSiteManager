@@ -82,9 +82,15 @@ export class AppService {
   private normalizeApp(app: StaticAppConfig): ManagedApp {
     const { owner, repo } = this.extractGithubParts(app.githubRepoUrl, app.repo);
     const siteUrl = this.normalizeDomainToUrl(app.domain);
+    const isUsedInRealWorld = app.isUsedInRealWorld ?? false;
 
     return {
       ...app,
+      cssFramework: app.cssFramework ?? 'other',
+      isMobileResponsive: app.isMobileResponsive ?? false,
+      isSinglePage: app.isSinglePage ?? false,
+      isUsedInRealWorld,
+      isDemoSite: app.isDemoSite ?? !isUsedInRealWorld,
       id: this.slugify(app.name),
       owner,
       repo,

@@ -1,9 +1,15 @@
 export type AppFramework = 'angular' | 'react' | 'other' | string;
+export type CssFramework = 'bootstrap' | 'tailwind' | 'other' | string;
 
 export interface StaticAppConfig {
   name: string;
   repo: string;
   framework: AppFramework;
+  cssFramework: CssFramework;
+  isMobileResponsive: boolean;
+  isSinglePage: boolean;
+  isUsedInRealWorld: boolean;
+  isDemoSite: boolean;
   domain: string;
   githubRepoUrl: string;
 }
