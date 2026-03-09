@@ -49,6 +49,17 @@
   min-width: 0;
 }
 
+.sam-footer {
+  margin-top: auto;
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--color-border-light);
+
+  a:hover {
+    opacity: 0.8;
+    transition: opacity var(--transition-base);
+  }
+}
+
 @media (max-width: 991px) {
   .sam-shell {
     grid-template-columns: 1fr;

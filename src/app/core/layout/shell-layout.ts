@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
@@ -8,4 +8,6 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   styleUrl: './shell-layout.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ShellLayout { }
+export class ShellLayout {
+  protected readonly currentYear = new Date().getFullYear();
+}

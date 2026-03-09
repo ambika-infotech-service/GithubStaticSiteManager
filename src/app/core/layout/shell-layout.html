@@ -17,7 +17,23 @@
         </small>
     </aside>
 
-    <main class="sam-main p-3 p-lg-4" id="main-content">
-        <router-outlet />
+    <main class="sam-main p-3 p-lg-4 d-flex flex-column" id="main-content">
+        <div class="flex-grow-1">
+            <router-outlet />
+        </div>
+        <footer class="sam-footer mt-auto pt-4 border-top">
+            <div class="text-center text-secondary small">
+                <p class="mb-2">
+                    &copy; {{ currentYear }} Ambika Infotech. All rights reserved.
+                </p>
+                <p class="mb-0">
+                    Designed &amp; Developed by
+                    <a href="https://ambikainfotech.online" target="_blank" rel="noopener noreferrer"
+                        class="text-decoration-none text-primary-emphasis fw-semibold">
+                        Ambika Infotech
+                    </a>
+                </p>
+            </div>
+        </footer>
     </main>
 </div>
