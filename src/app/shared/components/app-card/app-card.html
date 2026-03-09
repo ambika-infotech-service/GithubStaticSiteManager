@@ -1,5 +1,4 @@
-<article class="sam-app-card card border-0 h-100 shadow-sm"
-    [class.sam-status-online]="item().healthStatus === 'online'"
+<article class="sam-app-card card border-0 h-100 shadow-sm" [class.sam-status-online]="item().healthStatus === 'online'"
     [class.sam-status-offline]="item().healthStatus === 'offline'">
     <div class="card-body d-flex flex-column gap-3 h-100">
         <div class="d-flex align-items-start justify-content-between gap-3 sam-card-top">
@@ -15,7 +14,8 @@
 
         <div class="d-flex flex-wrap gap-2 sam-pill-row">
             <span class="badge text-bg-light border text-uppercase sam-pill">{{ item().app.framework }}</span>
-            <span class="badge text-bg-info-subtle border border-info-subtle text-info-emphasis text-uppercase sam-pill">
+            <span
+                class="badge text-bg-info-subtle border border-info-subtle text-info-emphasis text-uppercase sam-pill">
                 {{ item().app.cssFramework }}
             </span>
             <span class="badge text-bg-light border sam-pill">
@@ -43,7 +43,8 @@
             <div class="mb-2 sam-detail-row">
                 <dt class="small text-secondary fw-bold mb-1">URL</dt>
                 <dd class="mb-0">
-                    <a class="sam-link fw-semibold" [href]="item().app.siteUrl" target="_blank" rel="noopener noreferrer">
+                    <a class="sam-link fw-semibold" [href]="item().app.siteUrl" target="_blank"
+                        rel="noopener noreferrer">
                         {{ item().app.domain }}
                     </a>
                 </dd>
@@ -71,17 +72,15 @@
                 rel="noopener noreferrer">
                 GitHub
             </a>
-            <button type="button" class="btn btn-sm"
-                [class.btn-success]="copySuccess()"
-                [class.btn-outline-secondary]="!copySuccess()"
-                (click)="shareApp()"
+            <button type="button" class="btn btn-sm" [class.btn-success]="copySuccess()"
+                [class.btn-outline-secondary]="!copySuccess()" (click)="shareApp()"
                 [attr.aria-label]="copySuccess() ? 'Copied!' : 'Share app details'">
                 @if (copySuccess()) {
-                    <i class="bi bi-check-lg" aria-hidden="true"></i>
-                    Copied!
+                <i class="bi bi-check-lg" aria-hidden="true"></i>
+                Copied!
                 } @else {
-                    <i class="bi bi-share" aria-hidden="true"></i>
-                    Share
+                <i class="bi bi-share" aria-hidden="true"></i>
+                Share
                 }
             </button>
         </div>

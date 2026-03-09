@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppCard } from '../../../../shared/components/app-card/app-card';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { AppDashboardItem } from '../../../../models/dashboard.model';
+import { AppCard } from '../../../../shared/components/app-card/app-card';
 
 @Component({
   selector: 'app-app-list',

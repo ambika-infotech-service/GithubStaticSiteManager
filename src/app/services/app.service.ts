@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { Observable, forkJoin, map, of, shareReplay, switchMap, timer } from 'rxjs';
-import { AppDetailView, AppDashboardItem } from '../models/dashboard.model';
+import { AppDashboardItem, AppDetailView } from '../models/dashboard.model';
 import { ManagedApp, StaticAppConfig } from '../models/static-app.model';
 import { ConfigLoaderService } from './config-loader.service';
 import { GithubService } from './github.service';

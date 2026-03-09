@@ -43,8 +43,7 @@
             <div class="row g-3">
                 <div class="col-md-3">
                     <label for="framework-filter" class="form-label small">Framework</label>
-                    <select id="framework-filter" class="form-select form-select-sm"
-                        [value]="filters().framework"
+                    <select id="framework-filter" class="form-select form-select-sm" [value]="filters().framework"
                         (change)="updateFilter('framework', $any($event.target).value)">
                         <option value="">All Frameworks</option>
                         <option value="angular">Angular</option>
@@ -54,8 +53,7 @@
                 </div>
                 <div class="col-md-3">
                     <label for="css-filter" class="form-label small">CSS Framework</label>
-                    <select id="css-filter" class="form-select form-select-sm"
-                        [value]="filters().cssFramework"
+                    <select id="css-filter" class="form-select form-select-sm" [value]="filters().cssFramework"
                         (change)="updateFilter('cssFramework', $any($event.target).value)">
                         <option value="">All CSS Frameworks</option>
                         <option value="bootstrap">Bootstrap</option>
@@ -65,8 +63,7 @@
                 </div>
                 <div class="col-md-3">
                     <label for="status-filter" class="form-label small">Status</label>
-                    <select id="status-filter" class="form-select form-select-sm"
-                        [value]="filters().healthStatus"
+                    <select id="status-filter" class="form-select form-select-sm" [value]="filters().healthStatus"
                         (change)="updateFilter('healthStatus', $any($event.target).value)">
                         <option value="">All Status</option>
                         <option value="online">Online</option>

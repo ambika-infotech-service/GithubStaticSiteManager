@@ -1,10 +1,10 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { CommonModule, DOCUMENT } from '@angular/common';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { AppDashboardItem } from '../../../../models/dashboard.model';
 import { AppService } from '../../../../services/app.service';
 import { AppCard } from '../../../../shared/components/app-card/app-card';
 import { SkeletonCard } from '../../../../shared/components/skeleton-card/skeleton-card';
-import { AppDashboardItem } from '../../../../models/dashboard.model';
 
 interface FilterState {
   framework: string;
@@ -92,12 +92,12 @@ export class DashboardPage {
   protected readonly hasActiveFilters = computed(() => {
     const filterState = this.filters();
     return !!(filterState.framework ||
-              filterState.cssFramework ||
-              filterState.healthStatus ||
-              filterState.isMobileResponsive !== null ||
-              filterState.isSinglePage !== null ||
-              filterState.isUsedInRealWorld !== null ||
-              filterState.isDemoSite !== null);
+      filterState.cssFramework ||
+      filterState.healthStatus ||
+      filterState.isMobileResponsive !== null ||
+      filterState.isSinglePage !== null ||
+      filterState.isUsedInRealWorld !== null ||
+      filterState.isDemoSite !== null);
   });
 
   constructor() {

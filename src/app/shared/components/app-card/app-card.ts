@@ -1,3 +1,4 @@
+import { DatePipe, DOCUMENT, TitleCasePipe } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -6,10 +7,8 @@ import {
   input,
   signal,
 } from '@angular/core';
-import { DatePipe, TitleCasePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { AppDashboardItem } from '../../../models/dashboard.model';
-import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-app-card',

@@ -1,5 +1,5 @@
-import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable, inject } from '@angular/core';
 import { Observable, shareReplay } from 'rxjs';
 import { StaticAppsConfig } from '../models/static-app.model';
 
