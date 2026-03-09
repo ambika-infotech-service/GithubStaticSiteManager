@@ -5,27 +5,27 @@
             <p class="text-secondary mb-0">Monitor your static sites deployed on GitHub Pages</p>
         </div>
         @if (apps() && apps()!.length > 0) {
-        <button type="button" class="btn"
-            [class.btn-success]="copyAllSuccess()"
-            [class.btn-outline-primary]="!copyAllSuccess()"
-            (click)="shareAllApps()"
+        <button type="button" class="btn" [class.btn-success]="copyAllSuccess()"
+            [class.btn-outline-primary]="!copyAllSuccess()" (click)="shareAllApps()"
             [attr.aria-label]="copyAllSuccess() ? 'All apps copied!' : 'Share all apps'">
             @if (copyAllSuccess()) {
-                <i class="bi bi-check-lg" aria-hidden="true"></i>
-                Copied All!
+            <i class="bi bi-check-lg" aria-hidden="true"></i>
+            Copied All!
             } @else {
-                <i class="bi bi-share-fill" aria-hidden="true"></i>
-                Share All
+            <i class="bi bi-share-fill" aria-hidden="true"></i>
+            Share All
             }
         </button>
         }
     </header>
 
     @if (isLoading()) {
-    <div class="text-center py-5">
-        <div class="spinner-border" role="status">
-            <span class="visually-hidden">Loading apps...</span>
+    <div class="row g-3">
+        @for (i of [0, 1, 2]; track i) {
+        <div class="col-12 col-md-6 col-lg-4">
+            <app-skeleton-card />
         </div>
+        }
     </div>
     } @else if (apps() && apps()!.length > 0) {
     <div class="row g-3">

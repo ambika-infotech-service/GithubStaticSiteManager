@@ -2,11 +2,12 @@ import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@a
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { AppService } from '../../../../services/app.service';
 import { AppCard } from '../../../../shared/components/app-card/app-card';
+import { SkeletonCard } from '../../../../shared/components/skeleton-card/skeleton-card';
 import { AppDashboardItem } from '../../../../models/dashboard.model';
 
 @Component({
   selector: 'app-dashboard-page',
-  imports: [CommonModule, AppCard],
+  imports: [CommonModule, AppCard, SkeletonCard],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
