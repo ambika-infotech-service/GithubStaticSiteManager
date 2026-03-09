@@ -1,0 +1,124 @@
+{
+  "apps": [
+    {
+      "name": "Ambika Infotech",
+      "repo": "AmbikaInfotech",
+      "framework": "angular",
+      "cssFramework": "bootstrap",
+      "isMobileResponsive": true,
+      "isSinglePage": false,
+      "isUsedInRealWorld": false,
+      "isDemoSite": true,
+      "domain": "ambikainfotech.online",
+      "githubRepoUrl": "https://github.com/ambika-infotech-service/AmbikaInfotech"
+    },
+    {
+      "name": "Harihar Hardware & Paints",
+      "repo": "HariharHardware",
+      "framework": "angular",
+      "cssFramework": "bootstrap",
+      "isMobileResponsive": true,
+      "isSinglePage": false,
+      "isUsedInRealWorld": true,
+      "isDemoSite": true,
+      "domain": "hariharhardware.ambikainfotech.online",
+      "githubRepoUrl": "https://github.com/ambika-infotech-service/HariharHardware"
+    },
+    {
+      "name": "Live Darshan Portal",
+      "repo": "LiveDarshanPortal",
+      "framework": "angular",
+      "cssFramework": "bootstrap",
+      "isMobileResponsive": true,
+      "isSinglePage": false,
+      "isUsedInRealWorld": false,
+      "isDemoSite": true,
+      "domain": "livedarshan.ambikainfotech.online",
+      "githubRepoUrl": "https://github.com/ambika-infotech-service/LiveDarshanPortal"
+    },
+    {
+      "name": "Umiya Steel",
+      "repo": "UmiyaSteel",
+      "framework": "angular",
+      "cssFramework": "bootstrap",
+      "isMobileResponsive": true,
+      "isSinglePage": false,
+      "isUsedInRealWorld": false,
+      "isDemoSite": true,
+      "domain": "umiyasteel.ambikainfotech.online",
+      "githubRepoUrl": "https://github.com/ambika-infotech-service/UmiyaSteel"
+    },
+    {
+      "name": "Mahakali Fabrication",
+      "repo": "MahakaliFabrication",
+      "framework": "react",
+      "cssFramework": "tailwind",
+      "isMobileResponsive": true,
+      "isSinglePage": false,
+      "isUsedInRealWorld": false,
+      "isDemoSite": true,
+      "domain": "mahakalifabrication.ambikainfotech.online",
+      "githubRepoUrl": "https://github.com/ambika-infotech-service/MahakaliFabrication"
+    },
+    {
+      "name": "Royal Ceramic World",
+      "repo": "RoyalCeramicWorld",
+      "framework": "angular",
+      "cssFramework": "tailwind",
+      "isMobileResponsive": false,
+      "isSinglePage": false,
+      "isUsedInRealWorld": false,
+      "isDemoSite": true,
+      "domain": "royalceramicworld.ambikainfotech.online",
+      "githubRepoUrl": "https://github.com/ambika-infotech-service/RoyalCeramicWorld"
+    },
+    {
+      "name": "Royal Tile World",
+      "repo": "RoyalTileWorld",
+      "framework": "angular",
+      "cssFramework": "bootstrap",
+      "isMobileResponsive": true,
+      "isSinglePage": true,
+      "isUsedInRealWorld": false,
+      "isDemoSite": true,
+      "domain": "royaltileworld.ambikainfotech.online",
+      "githubRepoUrl": "https://github.com/ambika-infotech-service/RoyalTileWorld"
+    },
+    {
+      "name": "Angular Docs Mirror",
+      "repo": "angular-dev-docs",
+      "framework": "angular",
+      "cssFramework": "bootstrap",
+      "isMobileResponsive": true,
+      "isSinglePage": false,
+      "isUsedInRealWorld": false,
+      "isDemoSite": true,
+      "domain": "angular-docs.example.com",
+      "githubRepoUrl": "https://github.com/angular/angular"
+    },
+    {
+      "name": "React Landing",
+      "repo": "react-landing-page",
+      "framework": "react",
+      "cssFramework": "tailwind",
+      "isMobileResponsive": true,
+      "isSinglePage": true,
+      "isUsedInRealWorld": false,
+      "isDemoSite": true,
+      "domain": "react-landing.example.com",
+      "githubRepoUrl": "https://github.com/facebook/react"
+    },
+    {
+      "name": "Status Microsite",
+      "repo": "status-site",
+      "framework": "other",
+      "cssFramework": "bootstrap",
+      "isMobileResponsive": true,
+      "isSinglePage": true,
+      "isUsedInRealWorld": false,
+      "isDemoSite": true,
+      "domain": "status.example.com",
+      "githubRepoUrl": "https://github.com/github/docs"
+    }
+  ]
+}
