@@ -1,0 +1,25 @@
+{
+  "apps": [
+    {
+      "name": "Angular Docs Mirror",
+      "repo": "angular-dev-docs",
+      "framework": "angular",
+      "domain": "angular-docs.example.com",
+      "githubRepoUrl": "https://github.com/angular/angular"
+    },
+    {
+      "name": "React Landing",
+      "repo": "react-landing-page",
+      "framework": "react",
+      "domain": "react-landing.example.com",
+      "githubRepoUrl": "https://github.com/facebook/react"
+    },
+    {
+      "name": "Status Microsite",
+      "repo": "status-site",
+      "framework": "other",
+      "domain": "status.example.com",
+      "githubRepoUrl": "https://github.com/github/docs"
+    }
+  ]
+}

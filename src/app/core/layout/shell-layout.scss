@@ -1,0 +1,61 @@
+.sam-shell {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+}
+
+.sam-sidebar {
+  background: linear-gradient(180deg, #12263a, #0f1d2d);
+  color: #f6f8fa;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sam-brand-label {
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  font-size: 0.73rem;
+  color: var(--sam-sidebar-muted);
+}
+
+.sam-brand-name {
+  letter-spacing: 0.02em;
+}
+
+.sam-nav-link {
+  color: #e6edf3;
+  text-decoration: none;
+  padding: 0.65rem 0.75rem;
+  border-radius: 0.75rem;
+}
+
+.sam-nav-link:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.sam-nav-link-active {
+  background: rgba(31, 111, 235, 0.28);
+}
+
+.sam-sidebar-meta {
+  color: var(--sam-sidebar-muted);
+}
+
+.sam-main {
+  min-width: 0;
+}
+
+@media (max-width: 991px) {
+  .sam-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sam-sidebar {
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    gap: 1rem;
+  }
+}

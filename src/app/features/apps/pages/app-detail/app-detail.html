@@ -1,0 +1,113 @@
+@if (detail(); as appDetail) {
+<section class="d-flex flex-column gap-4" aria-labelledby="app-title">
+    <div>
+        <a routerLink="/dashboard" class="btn btn-link ps-0 text-decoration-none">
+            <i class="bi bi-arrow-left me-1" aria-hidden="true"></i>
+            Back to dashboard
+        </a>
+        <h1 id="app-title" class="h2 mb-1">{{ appDetail.app.name }}</h1>
+        <p class="text-secondary mb-0">Repository: {{ appDetail.app.owner }}/{{ appDetail.app.repo }}</p>
+    </div>
+
+    <div class="row g-3">
+        <div class="col-12 col-lg-5">
+            <article class="card border-0 shadow-sm h-100">
+                <div class="card-body d-flex flex-column gap-3">
+                    <h2 class="h5 mb-0">Deployment Overview</h2>
+                    <p class="mb-0">
+                        <span class="fw-semibold">Status:</span>
+                        <span class="badge rounded-pill ms-2"
+                            [class.text-bg-success]="appDetail.healthStatus === 'online'"
+                            [class.text-bg-danger]="appDetail.healthStatus === 'offline'"
+                            [class.text-bg-secondary]="appDetail.healthStatus === 'unknown'">
+                            {{ appDetail.healthStatus | titlecase }}
+                        </span>
+                    </p>
+                    <p class="mb-0">
+                        <span class="fw-semibold">Domain:</span>
+                        <a class="ms-1" [href]="appDetail.app.siteUrl" target="_blank" rel="noopener noreferrer">
+                            {{ appDetail.app.domain }}
+                        </a>
+                    </p>
+                    <p class="mb-0">
+                        <span class="fw-semibold">Framework:</span>
+                        <span class="text-uppercase ms-1">{{ appDetail.app.framework }}</span>
+                    </p>
+                    <div class="d-flex gap-2 pt-2">
+                        <a class="btn btn-outline-secondary btn-sm" [href]="appDetail.app.githubRepoUrl" target="_blank"
+                            rel="noopener noreferrer">
+                            Open Repository
+                        </a>
+                        <a class="btn btn-primary btn-sm" [href]="appDetail.app.siteUrl" target="_blank"
+                            rel="noopener noreferrer">
+                            Open Site
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <div class="col-12 col-lg-7">
+            <article class="card border-0 shadow-sm h-100">
+                <div class="card-body d-flex flex-column gap-2">
+                    <h2 class="h5 mb-0">Repository Information</h2>
+                    @if (appDetail.repository; as repository) {
+                    <p class="mb-1 text-secondary">{{ repository.description || 'No repository description.' }}</p>
+                    <div class="d-flex flex-wrap gap-3 small">
+                        <span><i class="bi bi-star-fill me-1"></i>{{ repository.stargazers_count }} stars</span>
+                        <span><i class="bi bi-exclamation-circle-fill me-1"></i>{{ repository.open_issues_count }} open
+                            issues</span>
+                        <span>Default branch: {{ repository.default_branch }}</span>
+                    </div>
+                    } @else {
+                    <p class="mb-0 text-secondary">Repository data is unavailable right now.</p>
+                    }
+
+                    <hr class="my-3" />
+
+                    <h3 class="h6 mb-1">Latest Deployment Commit</h3>
+                    @if (appDetail.latestCommit; as commit) {
+                    <p class="mb-1">
+                        <a [href]="commit.htmlUrl" target="_blank" rel="noopener noreferrer">
+                            {{ commit.shortSha }}
+                        </a>
+                        <span class="text-secondary ms-2">{{ commit.date | date: 'medium' }}</span>
+                    </p>
+                    <p class="mb-0 text-secondary">{{ commit.message }}</p>
+                    } @else {
+                    <p class="mb-0 text-secondary">No deployment commit could be loaded.</p>
+                    }
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <article class="card border-0 shadow-sm">
+        <div class="card-body">
+            <h2 class="h5">Recent Commits</h2>
+            @if (appDetail.recentCommits.length > 0) {
+            <ol class="list-group list-group-numbered">
+                @for (commit of appDetail.recentCommits; track commit.sha) {
+                <li class="list-group-item d-flex flex-column gap-1">
+                    <a [href]="commit.htmlUrl" target="_blank" rel="noopener noreferrer"
+                        class="fw-semibold text-decoration-none">
+                        {{ commit.shortSha }}
+                    </a>
+                    <span>{{ commit.message }}</span>
+                    <small class="text-secondary">{{ commit.committerName }} on {{ commit.date | date: 'medium'
+                        }}</small>
+                </li>
+                }
+            </ol>
+            } @else {
+            <p class="mb-0 text-secondary">No commit history is available for this app.</p>
+            }
+        </div>
+    </article>
+</section>
+} @else {
+<section class="text-center py-5">
+    <p class="mb-3">The selected app was not found.</p>
+    <a routerLink="/dashboard" class="btn btn-primary">Go to dashboard</a>
+</section>
+}

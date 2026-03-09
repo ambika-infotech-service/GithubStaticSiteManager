@@ -1,0 +1,23 @@
+<div class="sam-shell">
+    <aside class="sam-sidebar" aria-label="Primary navigation">
+        <div>
+            <p class="sam-brand-label mb-1">Static Apps</p>
+            <h1 class="sam-brand-name h4 mb-4">Manager</h1>
+            <nav class="nav flex-column gap-2">
+                <a routerLink="/dashboard" routerLinkActive="sam-nav-link-active" class="sam-nav-link"
+                    ariaCurrentWhenActive="page">
+                    <i class="bi bi-grid-1x2-fill me-2" aria-hidden="true"></i>
+                    Dashboard
+                </a>
+            </nav>
+        </div>
+
+        <small class="sam-sidebar-meta">
+            Public GitHub API only
+        </small>
+    </aside>
+
+    <main class="sam-main p-3 p-lg-4" id="main-content">
+        <router-outlet />
+    </main>
+</div>
