@@ -1,56 +1,61 @@
-<article class="sam-app-card card border-0 h-100 shadow-sm">
-    <div class="card-body d-flex flex-column gap-3">
-        <div class="d-flex align-items-start justify-content-between gap-3">
-            <div>
-                <h2 class="h5 mb-1">{{ item().app.name }}</h2>
-                <p class="text-secondary mb-0">{{ item().app.repo }}</p>
+<article class="sam-app-card card border-0 h-100 shadow-sm"
+    [class.sam-status-online]="item().healthStatus === 'online'"
+    [class.sam-status-offline]="item().healthStatus === 'offline'">
+    <div class="card-body d-flex flex-column gap-3 h-100">
+        <div class="d-flex align-items-start justify-content-between gap-3 sam-card-top">
+            <div class="sam-card-title-wrap">
+                <h2 class="h5 mb-1 sam-card-title">{{ item().app.name }}</h2>
+                <p class="text-secondary mb-0 sam-card-repo">{{ item().app.repo }}</p>
             </div>
-            <span class="badge rounded-pill" [class]="statusClass()">
+            <span class="badge rounded-pill sam-status-pill" [class]="statusClass()">
+                <span class="sam-status-dot" aria-hidden="true"></span>
                 {{ item().healthStatus | titlecase }}
             </span>
         </div>
 
-        <div class="d-flex flex-wrap gap-2">
-            <span class="badge text-bg-light border text-uppercase">{{ item().app.framework }}</span>
-            <span class="badge text-bg-info-subtle border border-info-subtle text-info-emphasis text-uppercase">
+        <div class="d-flex flex-wrap gap-2 sam-pill-row">
+            <span class="badge text-bg-light border text-uppercase sam-pill">{{ item().app.framework }}</span>
+            <span class="badge text-bg-info-subtle border border-info-subtle text-info-emphasis text-uppercase sam-pill">
                 {{ item().app.cssFramework }}
             </span>
-            <span class="badge text-bg-light border">
+            <span class="badge text-bg-light border sam-pill">
                 <i class="bi bi-star-fill me-1" aria-hidden="true"></i>
                 {{ item().repository?.stargazers_count ?? 0 }}
             </span>
         </div>
 
-        <div class="d-flex flex-wrap gap-2">
+        <div class="d-flex flex-wrap gap-2 sam-pill-row">
             @if (item().app.isMobileResponsive) {
-            <span class="badge text-bg-success">Mobile Responsive</span>
+            <span class="badge text-bg-success sam-pill">Mobile Responsive</span>
             }
             @if (item().app.isSinglePage) {
-            <span class="badge text-bg-primary">Single Page</span>
+            <span class="badge text-bg-primary sam-pill">Single Page</span>
             }
             @if (item().app.isUsedInRealWorld) {
-            <span class="badge text-bg-warning">Used In Real World</span>
+            <span class="badge text-bg-warning sam-pill">Used In Real World</span>
             }
             @if (item().app.isDemoSite) {
-            <span class="badge text-bg-dark">Demo Site</span>
+            <span class="badge text-bg-dark sam-pill">Demo Site</span>
             }
         </div>
 
-        <dl class="mb-0">
-            <div class="mb-2">
-                <dt class="small text-secondary mb-1">URL</dt>
+        <dl class="mb-0 sam-details">
+            <div class="mb-2 sam-detail-row">
+                <dt class="small text-secondary fw-bold mb-1">URL</dt>
                 <dd class="mb-0">
-                    <a [href]="item().app.siteUrl" target="_blank" rel="noopener noreferrer">
+                    <a class="sam-link fw-semibold" [href]="item().app.siteUrl" target="_blank" rel="noopener noreferrer">
                         {{ item().app.domain }}
                     </a>
                 </dd>
             </div>
-            <div>
-                <dt class="small text-secondary mb-1">Last deployment</dt>
+            <div class="sam-detail-row">
+                <dt class="small text-secondary fw-bold mb-1">Last deployment</dt>
                 <dd class="mb-0">
                     @if (item().latestCommit; as commit) {
-                    <span class="d-block">{{ commit.date | date: 'medium' }}</span>
-                    <small class="text-secondary">{{ commit.shortSha }} - {{ commit.message }}</small>
+                    <span class="d-block fw-semibold">{{ commit.date | date: 'medium' }}</span>
+                    <small class="text-secondary d-block text-truncate" [title]="commit.message">
+                        {{ commit.shortSha }} - {{ commit.message }}
+                    </small>
                     } @else {
                     <span class="text-secondary">No commit data available</span>
                     }
@@ -58,7 +63,7 @@
             </div>
         </dl>
 
-        <div class="mt-auto d-flex gap-2 pt-2">
+        <div class="mt-auto d-flex gap-2 pt-2 sam-actions">
             <a class="btn btn-primary btn-sm" [routerLink]="['/apps', item().app.id]">
                 Details
             </a>
