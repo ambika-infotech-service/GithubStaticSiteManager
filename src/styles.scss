@@ -1,14 +1,4 @@
-:root {
-  --sam-bg-top: #f2f6fb;
-  --sam-bg-bottom: #e6edf7;
-  --sam-surface: #ffffff;
-  --sam-sidebar: #12263a;
-  --sam-sidebar-muted: #9fb2c6;
-  --sam-primary: #1f6feb;
-  --sam-success: #1a7f37;
-  --sam-danger: #cf222e;
-  --sam-text: #16212f;
-}
+@use './styles/theme' as *;
 
 html,
 body {
@@ -17,12 +7,12 @@ body {
 
 body {
   margin: 0;
-  color: var(--sam-text);
-  font-family: 'Manrope', 'Segoe UI', sans-serif;
+  color: var(--color-text);
+  font-family: var(--font-family-base);
   background:
     radial-gradient(circle at 0% 0%, rgba(31, 111, 235, 0.18), transparent 35%),
     radial-gradient(circle at 100% 100%, rgba(15, 123, 138, 0.16), transparent 40%),
-    linear-gradient(180deg, var(--sam-bg-top), var(--sam-bg-bottom));
+    linear-gradient(180deg, var(--color-bg-top), var(--color-bg-bottom));
 }
 
 * {

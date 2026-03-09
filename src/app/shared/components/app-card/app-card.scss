@@ -1,9 +1,9 @@
 .sam-app-card {
-  background: rgba(255, 255, 255, 0.94);
+  background: var(--color-bg-surface-alt);
   backdrop-filter: blur(3px);
-  border-radius: 1rem;
+  border-radius: var(--radius-lg);
 }
 
 .sam-app-card dt {
-  font-weight: 600;
+  font-weight: var(--font-weight-semibold);
 }
