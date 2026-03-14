@@ -95,6 +95,18 @@
       "isDemoSite": false,
       "domain": "sitemanager.ambikainfotech.online",
       "githubRepoUrl": "https://github.com/ambika-infotech-service/GithubStaticSiteManager"
+    },
+    {
+      "name": "Ambika Infotech Portfolio",
+      "repo": "AmbikaInfotechPortfolio",
+      "framework": "angular",
+      "cssFramework": "bootstrap",
+      "isMobileResponsive": true,
+      "isSinglePage": true,
+      "isUsedInRealWorld": false,
+      "isDemoSite": true,
+      "domain": "3d.ambikainfotech.online",
+      "githubRepoUrl": "https://github.com/ambika-infotech-service/AmbikaInfotech3D"
     }
   ]
 }
