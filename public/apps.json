@@ -107,6 +107,18 @@
       "isDemoSite": true,
       "domain": "3d.ambikainfotech.online",
       "githubRepoUrl": "https://github.com/ambika-infotech-service/AmbikaInfotech3D"
+    },
+    {
+      "name": "Angular Animations Demo",
+      "repo": "AngularAnimation",
+      "framework": "angular",
+      "cssFramework": "bootstrap",
+      "isMobileResponsive": true,
+      "isSinglePage": false,
+      "isUsedInRealWorld": false,
+      "isDemoSite": true,
+      "domain": "animations.ambikainfotech.online",
+      "githubRepoUrl": "https://github.com/ambika-infotech-service/AngularAnimation"
     }
   ]
 }
